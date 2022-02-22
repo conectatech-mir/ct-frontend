@@ -1,0 +1,14 @@
+
+.professionalHeader {
+  background-color: #0b1121;
+}
+.professionalHeader nav ul div li {
+  color: #fff;
+  cursor: pointer;   
+}
+.professionalDropdownBox {
+  background-color: rgba(11, 17, 33, 0.8)
+}
+.professionalDropdownBox li a {
+    color: #fff;
+}
