@@ -109,7 +109,7 @@ const Login = () => {
 
               <p className="mt-2 text-center text-sm text-gray-200">
                 O{' '}
-                <Link to="/registroProfesional">Crea tu cuenta</Link>
+                <Link to="/registro">Crea tu cuenta</Link>
               </p>
 
             </form>
