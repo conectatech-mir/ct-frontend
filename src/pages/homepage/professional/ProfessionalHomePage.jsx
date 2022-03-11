@@ -1,13 +1,12 @@
 import React from "react";
-import ProfessionalHeader from "../../header/professional/ProfessionalHeader.component";
+import ProfessionalHead from "../../head/profesional/ProfesionalHead.component";
 import OfferUpdate from "../../../components/OfferUpdate.component";
 import SideBar from "../../../components/SideBar.component";
 
-const ProfessionalHomePage = () => {
+const ProfessionalHomePage = (props) => {
   return (
     <div className="bg-primary">
-      <ProfessionalHeader />
-
+      <ProfessionalHead name={props.name} />
       <div className="main grid grid-cols-3 gap-4 mx-4">
         <div className="mx-16">
           <SideBar />
