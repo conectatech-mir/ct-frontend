@@ -42,7 +42,7 @@ const ProfessionalHead = (props) => {
                     alt="Conectatech logo"
                   />
                   <div className="flex-5 px-5">
-                    <button className="btn-ghost btn normal-case text-white-xl">
+                    <button className="btn-ghost btn normal-case text-gray-100 hover:bg-indigo-400">
                       Conectatech - {props.name}
                     </button>
                   </div>
@@ -122,7 +122,7 @@ const ProfessionalHead = (props) => {
                             href="/"
                             className={classNames(
                               active ? "bg-indigo-400" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block divide-y px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Cerrar Sesión

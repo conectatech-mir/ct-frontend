@@ -5,24 +5,24 @@ import SideBar from "../../../components/SideBar.component";
 
 const ProfessionalHomePage = (props) => {
   return (
-    <div className="bg-primary">
+    <div className="bg-gray-200">
       <ProfessionalHead name={props.name} />
-      <div className="main grid grid-cols-3 gap-4 mx-4">
-        <div className="mx-16">
-          <SideBar />
+      <div className="content-center grid grid-cols-3 mt-2 my-auto">
+        <div className="mx-6">
+          <SideBar nombre={props.nombre} email={props.email} />
         </div>
-        <div className="y-4 col-span-2 mx-8">
-          <h3 className="mt-10 mb-12 text-center text-3xl font-extrabold text-yellow-500">
+        <div className="col-span-2 my-10 ">
+          <h3 className=" text-center text-3xl font-extrabold text-yellow-500">
             Proyectos Abiertos:
           </h3>
-          <div className="flex flex-col flex-wrap md:flex-row md:-m-3">
-            {[1, 2, 3, 4, 5].map((item) => (
+          <div className="flex flex-col flex-wrap md:flex-row ">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((item) => (
               <OfferUpdate
                 key={item}
                 urlImgProfile="http://daisyui.com/tailwind-css-component-profile-1@94w.png"
                 urlVerMas="http://localhost:3000/"
                 timeTrans="2 horas"
-                name="Mariana Díaz"
+                nombre={props.nombre}
                 nameTitle="Pagina Web"
                 especialidad="Diseño"
                 servicio="Diseño WEB"

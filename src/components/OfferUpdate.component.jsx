@@ -7,7 +7,7 @@ function OfferUpdate(props) {
     timeTrans,
     urlVerMas,
     urlOferta,
-    name,
+    nombre,
     nameTitle,
     especialidad,
     servicio,
@@ -29,7 +29,7 @@ function OfferUpdate(props) {
   };
 
   return (
-    <article className="max-h-500 -w-full md:w-1/2 px-2 py-2">
+    <article className="max-h-700 -w-full md:w-1/2 px-3 py-3">
       <div className="rounded-lg bg-white overflow-hidden shadow py-8 px-5">
         <div className="flex flex-row justify-between mb-2 leading-none">
           <span className="text-frilea-text-grey"> {timeTrans}</span>
@@ -45,7 +45,7 @@ function OfferUpdate(props) {
             <img src={urlImgProfile} alt="Profile" />
           </div>
         </div>
-        <h2>{name}</h2>
+        <h2>{nombre}</h2>
         <div className="box flex">
           {[1, 2, 3, 4, 5].map((index) => {
             return (
