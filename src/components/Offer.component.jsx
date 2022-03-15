@@ -1,4 +1,4 @@
-const Offer = () => {
+const Offer = (props) => {
   return (
     <div className="card w-full p-4 border space-y-3 bg-primary">
       <div className="flex items-center gap-x-3">
