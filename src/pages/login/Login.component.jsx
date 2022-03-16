@@ -1,6 +1,7 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { LockClosedIcon } from "@heroicons/react/solid";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LockClosedIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   let navigate = useNavigate();
@@ -96,15 +97,10 @@ const Login = () => {
               </label>
             </div>
 
-            <div className="text-sm">
-              <a
-                href="#"
-                className="font-medium text-indigo-400 hover:text-indigo-500"
-              >
-                Forgot your password?
-              </a>
-            </div>
-          </div>
+              <p className="mt-2 text-center text-sm text-gray-200">
+                O{' '}
+                <Link to="/registro">Crea tu cuenta</Link>
+              </p>
 
           <div>
             <button
