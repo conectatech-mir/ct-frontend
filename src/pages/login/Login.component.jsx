@@ -101,7 +101,7 @@ const Login = () => {
                 O{' '}
                 <Link to="/registro">Crea tu cuenta</Link>
               </p>
-
+          </div>
           <div>
             <button
               type="submit"
