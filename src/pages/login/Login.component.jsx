@@ -1,10 +1,16 @@
 import React from 'react';
-import { useRef, useState, useEffect} from 'react';
+import { useRef, useState, useEffect, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LockClosedIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/AuthProvider';
+
+import axios from '../../api/axios';
+const LOGIN_URL = '/auth/login';
 
 const Login = () => {
+
+  const { setAuth } = useContext(AuthContext);
 
   let navigate = useNavigate();
 
@@ -27,9 +33,44 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSuccess(true);
     console.log("Presionando el botón de Login");
     console.log("usuario: " + user + "Password: " + pwd);
+
+    try {
+      //TODO: Valide parameters require from backend
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ user, pwd}),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      );
+
+      console.log(JSON.stringify(response?.data));
+      //console.log(JSON.stringify(response));
+      const accessToken = response?.data?.accessToken;
+
+      setAuth({ user, pwd, accessToken })
+
+      setUser('');
+      setPwd('');
+      setSuccess(true);      
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No server Response');
+      } else if (err.response?.status === 400){
+        setErrMsg('Missing Username or Password');
+      } else if (err.response?.status === 401){
+        setErrMsg('Unauthorized');
+      } else {
+        setErrMsg('Login Failed');
+      }
+      errRef.current.focus();
+    }
+
+
+    // TODO: Delete later
     navigate("/profesionalHomePage");
   };
 
