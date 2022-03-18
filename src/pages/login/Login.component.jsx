@@ -5,7 +5,10 @@ import { LockClosedIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthProvider';
 
-import axios from '../../api/axios';
+import BASE_URL from '../../api/urls';
+
+import axios from 'axios';
+
 const LOGIN_URL = '/auth/login';
 
 const Login = () => {
@@ -14,47 +17,47 @@ const Login = () => {
 
   let navigate = useNavigate();
 
-  const userRef = useRef();
+  const emailRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState('');
-  const [pwd, setPwd] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    userRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
   useEffect(()=> {
     setErrMsg('');
-  }, [user, pwd]);
+  }, [email, password]);
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Presionando el botón de Login");
-    console.log("usuario: " + user + "Password: " + pwd);
+    console.log("usuario: " + email + "Password: " + password);
 
     try {
       //TODO: Valide parameters require from backend
-      const response = await axios.post(
-        LOGIN_URL,
-        JSON.stringify({ user, pwd}),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true
+      const response = await axios({
+        method: 'post',
+        baseURL: BASE_URL,
+        url:LOGIN_URL,
+        data:{
+          email,
+          password
         }
-      );
-
+      });
       console.log(JSON.stringify(response?.data));
       //console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
 
-      setAuth({ user, pwd, accessToken })
+      setAuth({ email, password, accessToken })
 
-      setUser('');
-      setPwd('');
+      setEmail('');
+      setPassword('');
       setSuccess(true);      
     } catch (err) {
       if (!err?.response) {
@@ -126,11 +129,11 @@ const Login = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  ref={userRef}
+                  ref={emailRef}
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
-                  onChange={(e) => setUser(e.target.value)}
-                  value={user}
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                 />
               </div>
               <div>
@@ -145,8 +148,8 @@ const Login = () => {
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
-                  onChange={(e) => setPwd(e.target.value)}
-                  value={pwd}
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                 />
               </div>
             </div>
