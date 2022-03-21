@@ -12,7 +12,9 @@ import UserPost from '../pages/User/Post'
 import IndexRegistro from '../pages/registro/IndexRegistro.component'
 import IndexRegistroProfesional from '../pages/registro/profesional/IndexRegistroProfesional.component'
 import ProfessionalHomePage from '../pages/homepage/professional/ProfessionalHomePage'
+import UserHomePage from '../pages/homepage/user/UserHomePage'
 import EditAccountPage from '../pages/account/editAccount.component'
+
 const Router = () => {
   const [userName] = useState('Usuario')
   const [professionaName] = useState('Profesional')
@@ -27,6 +29,7 @@ const Router = () => {
     <Route path='/EditAccountPage' element={<EditAccountPage name={professionaName} nombre={nomb} />} />
     <Route path='/registroProfesional' element={<IndexRegistroProfesional />} />
     <Route path='/profesionalHomePage' element={<ProfessionalHomePage name={professionaName} nombre={nomb} email={email} />} />
+    <Route path='/userHomePage' element={<UserHomePage name={userName} nombre={nomb} email={email} />} />
     <Route path='user/:username' element={<User nombre={nomb} email={email} />}>
       <Route path='feed' element={<Feed />} />
       <Route path='post/:id' element={<UserPost />} />
