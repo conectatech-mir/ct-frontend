@@ -5,6 +5,8 @@ import { LockClosedIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthProvider';
 
+import swal from 'sweetalert';
+
 import BASE_URL from '../../api/urls';
 
 import axios from 'axios';
@@ -24,6 +26,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
+  const [isNavigate, setIsNavigate] = useState(false);
 
   useEffect(() => {
     emailRef.current.focus();
@@ -54,12 +57,18 @@ const Login = () => {
       //console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
 
+      if (response) {
+        // TODO: Delete later
+        navigate("/profesionalHomePage");
+      }
+
       setAuth({ email, password, accessToken })
 
       setEmail('');
       setPassword('');
-      setSuccess(true);      
+      setSuccess(true);     
     } catch (err) {
+      swal("Error!", err.message, "error");
       if (!err?.response) {
         setErrMsg('No server Response');
       } else if (err.response?.status === 400){
@@ -71,10 +80,6 @@ const Login = () => {
       }
       errRef.current.focus();
     }
-
-
-    // TODO: Delete later
-    navigate("/profesionalHomePage");
   };
 
   return (
