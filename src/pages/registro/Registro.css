@@ -17,3 +17,7 @@ form div {
 input[type=submit] {
   font-size: 18px;
 }
+
+p {
+  color: rgb(202, 47, 47);
+}
