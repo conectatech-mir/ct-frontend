@@ -12,7 +12,7 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
 
-export default function UserHead(props) {
+const UserHead = (props) => {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -43,7 +43,7 @@ export default function UserHead(props) {
                     alt="Conectatech logo"
                   />
                   <div className="flex-5 px-5">
-                    <button className="btn-ghost btn normal-case text-white-xl">
+                    <button className="btn-ghost btn normal-case text-gray-100 hover:bg-indigo-400">
                       Conectatech - {props.name}
                     </button>
                   </div>
@@ -162,3 +162,5 @@ export default function UserHead(props) {
     </Disclosure>
   );
 }
+
+export default UserHead;
