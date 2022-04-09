@@ -86,12 +86,7 @@ const Login = () => {
           alt="Technology imagen"
         />
         <figure className="quote text-center">
-          <blockquote>
-            There is no elevator to success, you have to take the stairs.
-          </blockquote>
-          <figcaption>
-            &mdash; Zig Ziglar, <cite>from Somewhere</cite>
-          </figcaption>
+         
         </figure>
       </div>
       <div className="space-y-8 mx-8 md:mx-4">
