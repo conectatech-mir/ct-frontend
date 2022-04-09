@@ -86,7 +86,7 @@ const Login = () => {
           alt="Technology imagen"
         />
         <figure className="quote text-center">
-         
+         sasd
         </figure>
       </div>
       <div className="space-y-8 mx-8 md:mx-4">
