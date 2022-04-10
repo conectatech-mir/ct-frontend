@@ -23,7 +23,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     emailRef.current.focus();
@@ -58,7 +58,7 @@ const Login = () => {
 
       setEmail('');
       setPassword('');
-      setSuccess(true);      
+      // setSuccess(true);      
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No server Response');
@@ -79,15 +79,14 @@ const Login = () => {
 
   return (
     <div className="bg-primary grid grid-cols-1 md:grid-cols-3 items-center justify-center py-12 px-4 sm:px-6 lg:px-8 gap-8 h-screen">
-      <div className="space-y-8 hidden md:block col-span-2 text-xl xl:text-base">
-        <h1 className="text-center">Conectatech</h1>
-        <img
-          src="https://images.unsplash.com/photo-1638913660106-73b4bac0db09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
-          alt="Technology imagen"
-        />
-        <figure className="quote text-center">
-         sasd
-        </figure>
+     
+  
+     
+      <div className="space-y-8 mx-8 md:mx-4">
+        {/* <img 
+        src="https://images.unsplash.com/photo-1638913660106-73b4bac0db09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
+        alt="ConectaTech" /> */}
+
       </div>
       <div className="space-y-8 mx-8 md:mx-4">
         <div>
@@ -99,7 +98,7 @@ const Login = () => {
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-200">
             Login to your account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-200">
+          {/* <p className="mt-2 text-center text-sm text-gray-200">
             Or{" "}
             <a
               href="#"
@@ -107,7 +106,7 @@ const Login = () => {
             >
               start your 14-day free trial
             </a>
-          </p>
+          </p> */}
         </div>
         <section>
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>{errMsg}</p>
@@ -149,7 +148,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between align-center">
               <div className="flex items-center">
                 <input
                   id="remember-me"
@@ -165,10 +164,10 @@ const Login = () => {
                 </label>
               </div>
 
-                <p className="mt-2 text-center text-sm text-gray-200">
+                {/* <p className="mt-2 text-center text-sm text-gray-200">
                   O{' '}
                   <Link to="/registro">Crea tu cuenta</Link>
-                </p>
+                </p> */}
             </div>
             <div>
               <button
