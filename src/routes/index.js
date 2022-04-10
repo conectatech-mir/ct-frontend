@@ -15,6 +15,9 @@ import ProfessionalHomePage from '../pages/homepage/professional/ProfessionalHom
 import UserHomePage from '../pages/homepage/user/UserHomePage'
 import EditAccountPage from '../pages/account/editAccount.component'
 
+
+
+
 const Router = () => {
   const [userName] = useState('Usuario')
   const [professionaName] = useState('Profesional')
@@ -36,6 +39,7 @@ const Router = () => {
       <Route path='*' element={`${<h2>Page Not Found</h2>}`} />
     </Route>
   </Routes>;
+
 };
 
 export default Router;
