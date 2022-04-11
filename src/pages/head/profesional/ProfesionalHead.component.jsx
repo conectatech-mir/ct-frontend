@@ -32,12 +32,12 @@ const ProfessionalHead = (props) => {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-8 w-auto px-5"
+                    className="block lg:hidden h-12 w-auto px-5"
                     src="/resources/img/logo192.png"
                     alt="Conectatech"
                   />
                   <img
-                    className="hidden lg:block h-8 w-auto"
+                    className="hidden lg:block h-12 w-auto px-5"
                     src="/resources/img/logo192.png"
                     alt="Conectatech logo"
                   />

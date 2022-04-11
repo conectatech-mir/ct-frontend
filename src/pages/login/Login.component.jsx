@@ -107,24 +107,25 @@ const Login = () => {
   };
 
   return (
-    <div className="divide-y-8 divide-cyan-900 md:divide-indigo-500 grid grid-cols-1 md:grid-cols-3 items-center justify-center sm:px-6 lg:px-8 gap-2 h-screen">
-      <div className="space-y-8 hidden md:block col-span-2">
+    <div className="divide-y-8 py-8 divide-gray-800 md:divide-gray-800 grid grid-cols-1 md:grid-cols-3 items-center justify-center sm:px-6 lg:px-8 gap-2 h-screen">
+      <div className="space-y-4 hidden md:block col-span-2">
         <img
-          src="https://images.unsplash.com/photo-1638913660106-73b4bac0db09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
+          className="rounded-xl"
+          src="/resources/img/login.jpg"
           alt="Technology imagen"
         />
       </div>
-      <div className="space-y-8 mx-8 smx-12 md:mx-12 text-sm xl:text-base">
+      <div className="space-y-8 mx-8 smx-12 md:mx-12 text-sm xl:text-base rounded-2xl ">
         <div>
-          <h1 className="mx-auto py-5 text-center text-3xl font-extrabold text-gray-800">
+          {/* <h1 className="mx-auto py-5 text-center text-3xl font-extrabold text-gray-800">
             ConectaTech
-          </h1>
+          </h1> */}
           <img
-            className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+            className="mx-auto h-auto w-auto"
+            src="/resources/img/logo192.png"
             alt="Workflow"
           />
-          <p className="text-gray-500 py-3 dark:text-gray-900 text-center">
+          <p className="text-gray-500 dark:text-gray-900 text-center">
             Sign in to access your account
           </p>
         </div>
@@ -202,7 +203,7 @@ const Login = () => {
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-indigo-600 focus:ring-gray-800 border-gray-300 rounded"
                   data-cy="checkbox-terminos"
                 />
                 <label
@@ -222,7 +223,7 @@ const Login = () => {
                 type="submit"
                 onClick={handleSubmit}
                 data-cy="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span className="absolute left-0 inset-y- flex items-center pl-3">
                   <LockClosedIcon
