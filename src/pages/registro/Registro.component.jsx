@@ -64,6 +64,25 @@ const Registro = () => {
     const updateSkills = skills.filter((skill) => skill !== skillD);
     setSkills(updateSkills);
   };
+  const resultRegistration = async (res) => {
+    if (res.data?.ok) {
+      return await MySwal.fire({
+        title: <strong>Buen trabajo!</strong>,
+        html: <i>Cuenta Creada!</i>,
+        icon: "success",
+      });
+    } else if (res.status === 400) {
+      return await MySwal.fire({
+        title: <strong>Algo ha sucedido</strong>,
+        html: (
+          <i>{`Alguno de los campos es innválido. ${res.data.errors.map(
+            (error) => error.msg
+          )}`}</i>
+        ),
+        icon: "error",
+      });
+    }
+  };
   const onSubmit = async ({
     firstName,
     lastName,
@@ -87,51 +106,11 @@ const Registro = () => {
         newFormAccount.about = about;
         const url = `${process.env.REACT_APP_API_URL_BASE}/api/auth/p/register`;
         const res = await fetchUserRegister(newFormAccount, url);
-        console.log(
-          "🚀 ~ file: Registro.component.jsx ~ line 90 ~ Registro ~ res",
-          res
-        );
-        if (res.data?.ok) {
-          await MySwal.fire({
-            title: <strong>Buen trabajo!</strong>,
-            html: <i>Cuenta Profesional Creada!</i>,
-            icon: "success",
-          });
-        } else if (res.status === 400) {
-          return await MySwal.fire({
-            title: <strong>Algo ha sucedido</strong>,
-            html: (
-              <i>{`Alguno de los campos es innválido. ${res.data.errors.map(
-                (error) => error.msg
-              )}`}</i>
-            ),
-            icon: "error",
-          });
-        }
+        resultRegistration(res);
       } else if (rol === "USER") {
         const url = `${process.env.REACT_APP_API_URL_BASE}/api/auth/register`;
         const res = await fetchUserRegister(newFormAccount, url);
-        console.log(
-          "🚀 ~ file: Registro.component.jsx ~ line 100 ~ Registro ~ res",
-          res
-        );
-        if (res.data?.ok) {
-          await MySwal.fire({
-            title: <strong>Buen trabajo!</strong>,
-            html: <i>Cuenta de Usuario Creada!</i>,
-            icon: "success",
-          });
-        } else if (res.status === 400) {
-          return await MySwal.fire({
-            title: <strong>Algo ha sucedido</strong>,
-            html: (
-              <i>{`Alguno de los campos es innválido. ${res.data.errors.map(
-                (error) => error.msg
-              )}`}</i>
-            ),
-            icon: "error",
-          });
-        }
+        resultRegistration(res);
       }
     } catch (error) {
       console.log(error);
