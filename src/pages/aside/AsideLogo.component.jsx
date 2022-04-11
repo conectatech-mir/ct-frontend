@@ -8,12 +8,13 @@ const AsideLogo = ()=> {
         <div className='imgContainer'>
           <img src={logo} alt='Conectatech Logo' className='w-4/5 mx-auto'/>
         </div>
-        <p className='my-10 mx-auto w-4/5 frase'>
-          Cuanto más esperes en corregir un error, más costoso será arreglarlo
-        </p>
-        <h2 className='my-20 font-black conectatech'>
-          ConectaTech
-        </h2>
+        <h1 className='my-16 mx-auto w-4/10 frase'>
+          Cuanto más esperes en corregir un error, 
+          <br/>más costoso será arreglarlo.
+       
+
+          </h1>
+      
       </div>
     </aside>
   );

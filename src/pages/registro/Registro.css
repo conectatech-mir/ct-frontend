@@ -1,19 +1,19 @@
 .tituloRegistro {
-  font-size: 40px;
+  font-size: 30px;
   color: #468FAF;
-  line-height: 45px;
-  margin-bottom: 20px;
+  line-height: 14px;
+  margin-bottom: 14px;
 }
 
 .labelSpan {
-  font-size: 20px;
+  font-size: 16px;
   color: #468FAF;
 }
 
 form div {
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 input[type=submit] {
-  font-size: 18px;
+  font-size: 12px;
 }
