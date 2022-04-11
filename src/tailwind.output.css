@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.15 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -1588,6 +1588,21 @@ html {
   z-index: 20;
 }
 
+.checkbox {
+  flex-shrink: 0;
+  --chkbg: var(--bc);
+  --chkfg: var(--b1);
+  -webkit-appearance: none;
+  appearance: none;
+  --tw-border-opacity: 0.2;
+  border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
+  border-width: 1px;
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: var(--rounded-btn, .5rem);
+}
+
 .checkbox:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1954,7 +1969,7 @@ html {
   box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsla(var(--bc) / .2);
 }
 
-.avatar-group .avatar {
+.avatar-group :where(.avatar) {
   --tw-border-opacity: 1;
   border-color: hsla(var(--b1) / var(--tw-border-opacity, 1));
   border-radius: 9999px;
@@ -2350,20 +2365,6 @@ html {
   margin-bottom: .25rem;
 }
 
-.checkbox {
-  --chkbg: var(--bc);
-  --chkfg: var(--b1);
-  -webkit-appearance: none;
-  appearance: none;
-  --tw-border-opacity: 0.2;
-  border-color: hsla(var(--bc) / var(--tw-border-opacity, 1));
-  border-width: 1px;
-  cursor: pointer;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: var(--rounded-btn, .5rem);
-}
-
 .checkbox:focus-visible {
   box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--bc));
 }
@@ -2375,6 +2376,15 @@ html {
   -webkit-animation: checkmark var(--animation-input, .2s)  ease-in-out;
   animation: checkmark var(--animation-input, .2s)  ease-in-out;
   background-image: linear-gradient(-45deg, transparent 65%, hsl(var(--chkbg)) 0), linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 0), linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 0), linear-gradient(45deg, hsl(var(--chkbg)) 30%, hsl(var(--chkfg)) 0, hsl(var(--chkfg)) 40%, transparent 0), linear-gradient(-45deg, hsl(var(--chkfg)) 50%, hsl(var(--chkbg)) 0);
+}
+
+.checkbox:indeterminate {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
+  background-repeat: no-repeat;
+  -webkit-animation: checkmark var(--animation-input, .2s)  ease-in-out;
+  animation: checkmark var(--animation-input, .2s)  ease-in-out;
+  background-image: linear-gradient(90deg, transparent 80%, hsl(var(--chkbg)) 0), linear-gradient(-90deg, transparent 80%, hsl(var(--chkbg)) 0), linear-gradient(0deg, hsl(var(--chkbg)) 43%, hsl(var(--chkfg)) 0, hsl(var(--chkfg)) 57%, hsl(var(--chkbg)) 0);
 }
 
 .checkbox:disabled {

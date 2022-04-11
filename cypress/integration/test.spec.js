@@ -4,10 +4,10 @@ describe('/login Conectatech App', () => {
         cy.visit('http://localhost:3000')
     });
     it('Abriendo Front-app', () => {
-        cy.contains('h1', 'ConectaTech')
+        cy.contains('p', 'Sign in to access your account')
     });
     it('login form can be opened', () => {
-        cy.get('div').contains('Sign in to access your account').click()
+        cy.get('p').contains('Sign in to access your account').click()
         cy.get('[data-cy=email-address]').type(user[0].email)
         cy.get('[data-cy=password]').type(user[0].password)
         //  cy.get('#password').type('mariana123')
