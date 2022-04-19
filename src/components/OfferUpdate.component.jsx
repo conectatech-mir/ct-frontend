@@ -1,8 +1,11 @@
 import React from "react";
 import RatingIcon from "./RatingIcon.components";
-
+import { useDispatch } from "react-redux";
+import { patchPostOffered } from "../store/actions/postActions";
 function OfferUpdate(props) {
   const {
+    idPost,
+    userId,
     urlImgProfile,
     timeTrans,
     urlVerMas,
@@ -16,6 +19,7 @@ function OfferUpdate(props) {
     presupuesto,
     descripcion,
   } = props;
+  const dispatch = useDispatch();
   const [rating, setRating] = React.useState(0);
   const [hoverRating, setHoverRating] = React.useState(0);
   const onMouseEnter = (index) => {
@@ -27,7 +31,12 @@ function OfferUpdate(props) {
   const onSaveRating = (index) => {
     setRating(index);
   };
-
+  const handleOffer = (idPost) => {
+    const UpdatePost = {
+      accepted: userId,
+    };
+    dispatch(patchPostOffered(idPost, UpdatePost));
+  };
   return (
     <article className="max-h-700 -w-full md:w-1/2 px-3 py-3">
       <div className="rounded-lg bg-white overflow-hidden shadow py-8 px-5">
@@ -93,13 +102,13 @@ function OfferUpdate(props) {
           <p>{descripcion}</p>
         </div>
         <div className="text-center ">
-          <a
+          <button
             title=" Ofertar Ahora!"
-            href={urlOferta}
-            className="btn-blue inline-block w-full text-white cursor-pointer hover:bg-yellow-300 rounded-lg py-2 px-6 font-semibold text-lg text-center"
+            onClick={() => handleOffer(idPost)}
+            className="btn-blue inline-block w-full text-white cursor-pointer hover:bg-blue-600 rounded-lg py-2 px-6 font-semibold text-lg text-center"
           >
             Ofertar Ahora!
-          </a>
+          </button>
         </div>
       </div>
     </article>

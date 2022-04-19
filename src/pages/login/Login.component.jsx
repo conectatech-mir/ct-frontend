@@ -60,7 +60,7 @@ const Login = () => {
       setSuccess(true);
       window.localStorage.setItem(
         "ConectedLoggedApp",
-        JSON.stringify(response)
+        JSON.stringify(response.data.data)
       );
       // TODO: Delete later
       toast.success("¡Bienvenido! " + email);
@@ -74,7 +74,9 @@ const Login = () => {
         progress: undefined,
       });
       toast.success();
-      navigate("/profesionalHomePage");
+      response.data.data.rol === "USER"
+        ? navigate("/userHomePage")
+        : navigate("/profesionalHomePage");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server Response");
