@@ -1,11 +1,12 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Crear Petición", href: "#", current: false },
-  { name: "Peticiones Resueltas", href: "#", current: false },
-  { name: "Mis Peticiones", href: "#", current: false },
+  { name: "Peticiones", href: "/userHomePage", current: false },
+  { name: "Peticiones Resueltas", href: "/MyrequestResolved", current: false },
+  { name: "Peticiones Pendientes", href: "/MyRequests", current: false },
 ];
 
 const classNames = (...classes) => {
@@ -51,9 +52,9 @@ const UserHead = (props) => {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
@@ -63,7 +64,7 @@ const UserHead = (props) => {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -161,6 +162,6 @@ const UserHead = (props) => {
       )}
     </Disclosure>
   );
-}
+};
 
 export default UserHead;

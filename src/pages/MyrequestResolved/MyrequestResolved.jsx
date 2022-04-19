@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import UserHead from "../../head/user/UserHead.component";
-import PostUpdate from "../../../components/PostUpdate.component";
-import SideBar from "../../../components/SideBar.component";
-import { fetchUser } from "../../../store/actions/userActions";
-import { fetchAllPost } from "../../../store/actions/postActions";
+import { fetchUser } from "../../store/actions/userActions";
+import { fetchAllAccepted } from "../../store/actions/postActions";
+import UserHead from "../head/user/UserHead.component";
+import SideBar from "../../components/SideBar.component";
+import PostUpdate from "../../components/PostUpdate.component";
 
-const UserHomePage = (props) => {
+const MyrequestResolved = (props) => {
   const { id } = JSON.parse(localStorage.getItem("ConectedLoggedApp"));
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer);
-  const { posts } = useSelector((state) => state.postReducer);
+  console.log("🚀 ~ file: MyRequests.jsx ~ line 14 ~ MyRequests ~ user", user);
+  const { postsPending } = useSelector((state) => state.postReducer);
   useEffect(() => {
-    dispatch(fetchAllPost(id));
+    dispatch(fetchAllAccepted(id));
     dispatch(fetchUser(id));
   }, []);
 
@@ -31,10 +32,10 @@ const UserHomePage = (props) => {
         </div>
         <div className="col-span-2 my-10 ">
           <h3 className=" text-center text-3xl font-extrabold text-yellow-500">
-            Posts Creados:
+            Mis Peticiones Pendientes:
           </h3>
           <div className="flex flex-col flex-wrap md:flex-row ">
-            {posts.map((post) => (
+            {postsPending.map((post) => (
               <PostUpdate
                 key={post?._id}
                 urlImgProfile="http://daisyui.com/tailwind-css-component-profile-1@94w.png"
@@ -55,4 +56,4 @@ const UserHomePage = (props) => {
   );
 };
 
-export default UserHomePage;
+export default MyrequestResolved;
