@@ -125,7 +125,7 @@ const Registro = () => {
     <div className="w-7/12 mx-auto">
       <form className="p-8 pb-0" onSubmit={handleSubmit(onSubmit)}>
         <h2 className="tituloRegistro font-black">
-          Regístrate, y así podrás ser parte de nuestra comunidad.
+          Registrate y así podrás ser parte de nuestra comunidad
         </h2>
         <div className="form-control">
           <label className="label">

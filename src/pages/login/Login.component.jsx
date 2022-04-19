@@ -64,7 +64,7 @@ const Login = () => {
       );
       // TODO: Delete later
       toast.success("¡Bienvenido! " + email);
-      toast("¡🦄 Bienvenido! " + response?.data?.message, {
+      toast("🦄" + response?.data?.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -216,9 +216,9 @@ const Login = () => {
                 </label>
               </div>
 
-              <p className=" no-underline hover:underline py-2 text-center text-sm text-gray-500">
+              {/* <p className=" no-underline hover:underline py-2 text-center text-sm text-gray-500">
                 O <Link to="/registro">Crea tu cuenta</Link>
-              </p>
+              </p> */}
             </div>
             <div>
               <button
@@ -237,9 +237,9 @@ const Login = () => {
               </button>
             </div>
 
-            <p className="no-underline hover:underline-offset-1 py-4 text-center text-sm text-gray-900">
+            <h2 className="no-underline hover:underline-offset-1 py-4 text-center text-sm text-gray-900">
               O <Link to="/registro">Crea tu cuenta</Link>
-            </p>
+            </h2>
           </form>
         </div>
       </div>

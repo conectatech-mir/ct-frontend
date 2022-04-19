@@ -93,7 +93,7 @@ const ProfessionalHead = (props) => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/"
+                          href="/EditAccountPage"
                             className={classNames(
                               active ? "bg-indigo-400" : "",
                               "block px-4 py-2 text-sm text-gray-700"
