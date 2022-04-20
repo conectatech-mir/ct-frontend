@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserHead from "../../head/user/UserHead.component";
 import PostUpdate from "../../../components/PostUpdate.component";
@@ -39,12 +39,13 @@ const UserHomePage = (props) => {
                 key={post?._id}
                 urlImgProfile="http://daisyui.com/tailwind-css-component-profile-1@94w.png"
                 urlVerMas="http://localhost:3000/"
-                timeTrans="2 horas"
                 nombre={`${user.firstName} ${user.lastName}`}
                 nameTitle={post.title}
                 presupuesto={post.price}
                 descripcion={post.body}
                 tags={post.tags}
+                accepted={post.accepted}
+                professionalName={`${post.accepted?.firstName} ${post.accepted?.lastName} - ${post.accepted?.email}`}
                 urlOferta="http://localhost:3000/"
               />
             ))}

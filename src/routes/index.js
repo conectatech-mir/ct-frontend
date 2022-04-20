@@ -44,10 +44,7 @@ const Router = () => {
       />
       <Route path="/userHomePage" element={<UserHomePage name={userName} />} />
       <Route path="/MyRequests" element={<MyRequests name={userName} />} />
-      <Route
-        path="/MyrequestResolved"
-        element={<MyrequestResolved name={userName} />}
-      />
+      <Route path="/MyrequestResolved" element={<MyrequestResolved />} />
 
       <Route path="user/:username" element={<User />}>
         <Route path="feed" element={<Feed />} />

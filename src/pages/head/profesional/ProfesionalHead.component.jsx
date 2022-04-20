@@ -1,10 +1,11 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Resolver Petición", href: "#", current: false },
-  { name: "Peticiones Resueltas", href: "#", current: false },
+  { name: "Resolver Petición", href: "/profesionalHomePage", current: false },
+  { name: "Peticiones Resueltas", href: "/MyrequestResolved", current: false },
 ];
 
 const classNames = (...classes) => {
@@ -50,9 +51,9 @@ const ProfessionalHead = (props) => {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
@@ -62,7 +63,7 @@ const ProfessionalHead = (props) => {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -93,7 +94,7 @@ const ProfessionalHead = (props) => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                          href="/EditAccountPage"
+                            href="/EditAccountPage"
                             className={classNames(
                               active ? "bg-indigo-400" : "",
                               "block px-4 py-2 text-sm text-gray-700"
