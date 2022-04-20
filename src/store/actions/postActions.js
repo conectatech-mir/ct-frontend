@@ -4,6 +4,7 @@ import {
   getPostUser,
   updatePostOffered,
   getPostProfesional,
+  getPostAcceptedProfessional,
 } from "../services/postServices";
 import {
   LOAD_POST_USER,
@@ -11,6 +12,7 @@ import {
   LOAD_RESOLVED_POST_USER,
   UPDATE_POST_OFFERED,
   LOAD_POST_PROFESSIONAL,
+  LOAD_RESOLVED_POST_LOAD_POST_PROFESSIONAL,
 } from "../types/postTypes";
 const loadPost = (post) => ({
   type: LOAD_POST_USER,
@@ -22,6 +24,10 @@ const loadPostPending = (post) => ({
 });
 const loadPostAccepted = (post) => ({
   type: LOAD_RESOLVED_POST_USER,
+  payload: post,
+});
+const loadPostAcceptedProfessional = (post) => ({
+  type: LOAD_RESOLVED_POST_LOAD_POST_PROFESSIONAL,
   payload: post,
 });
 const updatePostoffered = (post) => ({
@@ -51,4 +57,8 @@ export const fetchAllAccepted = (idUser) => async (dispatch) => {
 export const patchPostOffered = (idPost, postUpdate) => async (dispatch) => {
   const post = await updatePostOffered(idPost, postUpdate);
   dispatch(updatePostoffered(post));
+};
+export const fetchAllAcceptedProfessional = (idUser) => async (dispatch) => {
+  const post = await getPostAcceptedProfessional(idUser);
+  dispatch(loadPostAcceptedProfessional(post));
 };

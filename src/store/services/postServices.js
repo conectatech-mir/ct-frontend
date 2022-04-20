@@ -29,3 +29,8 @@ export const getPostProfesional = async (idUser) => {
   const res = await axios.get(url);
   return res.data.posts;
 };
+export const getPostAcceptedProfessional = async (idUser) => {
+  const url = `${URL_BASE}/api/posts/postProfesionalAccepted/${idUser}`;
+  const res = await axios.get(url);
+  return res.data.posts;
+};

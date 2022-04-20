@@ -3,7 +3,6 @@ import ProfessionalHead from "../head/profesional/ProfesionalHead.component";
 export default function detailsOffer(props) {
   const {
     urlImgProfile,
-    timeTrans,
     nameTitle,
     especialidad,
     servicio,

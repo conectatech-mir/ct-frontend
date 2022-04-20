@@ -4,6 +4,7 @@ import {
   LOAD_RESOLVED_POST_USER,
   UPDATE_POST_OFFERED,
   LOAD_POST_PROFESSIONAL,
+  LOAD_RESOLVED_POST_LOAD_POST_PROFESSIONAL,
 } from "../types/postTypes";
 
 const initialState = {
@@ -21,7 +22,9 @@ const postReducer = (state = initialState, action) => {
     case LOAD_PENDING_POST_USER:
       return { ...state, postsPending: action.payload };
     case LOAD_RESOLVED_POST_USER:
-      return { ...state, postsPending: action.payload };
+      return { ...state, postsAccepted: action.payload };
+    case LOAD_RESOLVED_POST_LOAD_POST_PROFESSIONAL:
+      return { ...state, postsAccepted: action.payload };
     case UPDATE_POST_OFFERED:
       return { ...state, updatePost: action.payload };
     case LOAD_POST_PROFESSIONAL:

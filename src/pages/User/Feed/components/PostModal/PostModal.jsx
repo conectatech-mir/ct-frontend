@@ -4,9 +4,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { fetchAllPost } from "../../../../../store/actions/postActions";
 import withReactContent from "sweetalert2-react-content";
 
 const PostModal = (props) => {
+  const dispatch = useDispatch();
   const postSchema = yup.object().shape({
     title: yup.string().required("Ingrese un titulo para el post"),
     body: yup.string().required("Ingrese una descripcion para el post"),
@@ -62,11 +65,16 @@ const PostModal = (props) => {
   };
   const resultRegistrationPost = async (res) => {
     if (res.data?.ok) {
-      return await MySwal.fire({
+      const response = await MySwal.fire({
         title: <strong>Buen trabajo!</strong>,
-        html: <i>Cuenta Creada!</i>,
+        html: <i>Post Creada!</i>,
         icon: "success",
       });
+      setValue("title", "");
+      setValue("body", "");
+      setValue("price", "");
+      setTags([]);
+      return response;
     } else if (res.status === 400) {
       return await MySwal.fire({
         title: <strong>Algo ha sucedido</strong>,
@@ -92,6 +100,7 @@ const PostModal = (props) => {
       const url = `${process.env.REACT_APP_API_URL_BASE}/api/posts`;
       const res = await fetchPost(newFormAccount, url);
       resultRegistrationPost(res);
+      dispatch(fetchAllPost(id));
     } catch (error) {
       console.log(error);
       return await MySwal.fire({

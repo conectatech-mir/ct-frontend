@@ -38,8 +38,7 @@ const ProfessionalHomePage = (props) => {
                 idPost={post._id}
                 urlImgProfile="http://daisyui.com/tailwind-css-component-profile-1@94w.png"
                 urlVerMas="http://localhost:3000/"
-                timeTrans="2 horas"
-                nombre={`${user.firstName} ${user.lastName}`}
+                nombre={`${post.user.firstName} ${post.user.lastName}`}
                 nameTitle={post.title}
                 presupuesto={post.price}
                 descripcion={post.body}

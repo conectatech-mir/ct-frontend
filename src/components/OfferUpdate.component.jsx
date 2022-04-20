@@ -1,13 +1,18 @@
 import React from "react";
 import RatingIcon from "./RatingIcon.components";
 import { useDispatch } from "react-redux";
-import { patchPostOffered } from "../store/actions/postActions";
+import {
+  fetchAllPostProfessional,
+  patchPostOffered,
+} from "../store/actions/postActions";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 function OfferUpdate(props) {
   const {
     idPost,
     userId,
     urlImgProfile,
-    timeTrans,
+
     urlVerMas,
     urlOferta,
     nombre,
@@ -19,6 +24,7 @@ function OfferUpdate(props) {
     presupuesto,
     descripcion,
   } = props;
+  const MySwal = withReactContent(Swal);
   const dispatch = useDispatch();
   const [rating, setRating] = React.useState(0);
   const [hoverRating, setHoverRating] = React.useState(0);
@@ -31,17 +37,22 @@ function OfferUpdate(props) {
   const onSaveRating = (index) => {
     setRating(index);
   };
-  const handleOffer = (idPost) => {
+  const handleOffer = async (idPost) => {
     const UpdatePost = {
       accepted: userId,
     };
-    dispatch(patchPostOffered(idPost, UpdatePost));
+    await dispatch(patchPostOffered(idPost, UpdatePost));
+    dispatch(fetchAllPostProfessional());
+    return MySwal.fire({
+      title: <strong>Exito</strong>,
+      html: <i>Post Ofertado</i>,
+      icon: "success",
+    });
   };
   return (
     <article className="max-h-700 -w-full md:w-1/2 px-3 py-3">
       <div className="rounded-lg bg-white overflow-hidden shadow py-8 px-5">
         <div className="flex flex-row justify-between mb-2 leading-none">
-          <span className="text-frilea-text-grey"> {timeTrans}</span>
           <a
             className="mb-4 inline-block font-bold text-cyan-800 px-5 md:order-2 focus:outline-none"
             href={urlVerMas}
@@ -93,7 +104,7 @@ function OfferUpdate(props) {
               </tr>
               <tr>
                 <td>Presupuesto:</td>
-                <td className="font-bold">{presupuesto}</td>
+                <td className="font-bold">{presupuesto}$</td>
               </tr>
             </tbody>
           </table>
