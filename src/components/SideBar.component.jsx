@@ -58,7 +58,7 @@ const SideBar = (props) => {
                     <span
                       key={skill}
                       className={`inline-block rounded-full text-white 
-                          bg-${colors[index]}-400 hover:bg-${colors[index]}-500 duration-300 
+                          bg-slate-700 hover:bg-slate-800 duration-300 
                           text-xs font-bold text-center
                           mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1 
                           opacity-90 hover:opacity-100`}
