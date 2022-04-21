@@ -11,7 +11,6 @@ const MyRequests = (props) => {
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer);
-  console.log("🚀 ~ file: MyRequests.jsx ~ line 14 ~ MyRequests ~ user", user);
   const { postsPending } = useSelector((state) => state.postReducer);
   useEffect(() => {
     dispatch(fetchAllPostPending(id));

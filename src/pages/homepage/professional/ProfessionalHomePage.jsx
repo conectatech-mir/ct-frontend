@@ -15,6 +15,7 @@ const ProfessionalHomePage = (props) => {
     dispatch(fetchUser(id));
     dispatch(fetchAllPostProfessional());
   }, []);
+
   return (
     <div className="bg-gray-200">
       <ProfessionalHead name={props.name} />
