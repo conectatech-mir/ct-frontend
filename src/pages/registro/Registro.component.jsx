@@ -1,6 +1,6 @@
 import "./Registro.css";
 // import useForm from "../../hooks/useForm";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -49,7 +49,11 @@ const Registro = () => {
     }
   };
   const isDuplicateSkill = (skill) => {
-    return skills.includes(skill);
+    if (skill.length === 0) {
+      return true;
+    } else {
+      return skills.includes(skill);
+    }
   };
   const addSkills = (e) => {
     e.preventDefault();
@@ -57,7 +61,11 @@ const Registro = () => {
       setSkills([...skills, getValues("skills")]);
       setValue("skills", "");
     } else {
-      alert("Skill duplicado");
+      return MySwal.fire({
+        title: <strong>Algo ha sucedido</strong>,
+        html: <i>Skill Duplicado</i>,
+        icon: "error",
+      });
     }
   };
   const deleteSkills = (skillD) => {
@@ -66,11 +74,13 @@ const Registro = () => {
   };
   const resultRegistration = async (res) => {
     if (res.data?.ok) {
-      return await MySwal.fire({
+      const response = await MySwal.fire({
         title: <strong>Buen trabajo!</strong>,
         html: <i>Cuenta Creada!</i>,
         icon: "success",
       });
+      navigate("/");
+      return response;
     } else if (res.status === 400) {
       return await MySwal.fire({
         title: <strong>Algo ha sucedido</strong>,
@@ -293,13 +303,13 @@ const Registro = () => {
         <div className="flex justify-center">
           <input
             type="button"
-            className="btn w-2/5 m-5"
+            className="btn m-5"
             value="Cancelar"
             onClick={() => navigate("/")}
           ></input>
           <input
             type="submit"
-            className="btn btn-info w-2/5 m-5"
+            className="btn btn-info  m-5"
             value="Registrar"
           ></input>
         </div>
