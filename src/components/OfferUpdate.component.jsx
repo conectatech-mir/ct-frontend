@@ -87,22 +87,6 @@ function OfferUpdate(props) {
           <table className="md:table-fixed">
             <tbody>
               <tr>
-                <td>Especialidad:</td>
-                <td className="font-bold">{especialidad}</td>
-              </tr>
-              <tr>
-                <td>Servicios:</td>
-                <td className="font-bold">{servicio}</td>
-              </tr>
-              <tr>
-                <td>Inicio:</td>
-                <td className="font-bold">{fechaInicio}</td>
-              </tr>
-              <tr>
-                <td>Entrega:</td>
-                <td className="font-bold">{fechaEntrega}</td>
-              </tr>
-              <tr>
                 <td>Presupuesto:</td>
                 <td className="font-bold">{presupuesto}$</td>
               </tr>
@@ -110,6 +94,7 @@ function OfferUpdate(props) {
           </table>
         </div>
         <div className="mb-5">
+          <h1 className="text-lg">descripcion:</h1>
           <p>{descripcion}</p>
         </div>
         <div className="text-center ">

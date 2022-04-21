@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PostModal from "../pages/User/Feed/components/PostModal/PostModal";
 const colors = [
   "blue",
@@ -27,12 +28,12 @@ const SideBar = (props) => {
           <p className="pt-2 text-lg font-semibold">{props.nombre}</p>
           <p className="text-sm text-gray-600">{props.email}</p>
           <div className="mt-5">
-            <a
-              href="/EditAccountPage"
+            <Link
+              to="/EditAccountPage"
               className="border rounded-full py-2 px-4 text-xs font-semibold text-gray-700 hover:bg-indigo-400"
             >
               Editar Perfil
-            </a>
+            </Link>
           </div>
         </div>
         {props.rol === "USER" ? (

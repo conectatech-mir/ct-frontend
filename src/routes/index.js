@@ -13,9 +13,10 @@ import IndexRegistro from "../pages/registro/IndexRegistro.component";
 import IndexRegistroProfesional from "../pages/registro/profesional/IndexRegistroProfesional.component";
 import ProfessionalHomePage from "../pages/homepage/professional/ProfessionalHomePage";
 import UserHomePage from "../pages/homepage/user/UserHomePage";
-import EditAccountPage from "../pages/account/editAccount.component";
+
 import MyRequests from "../pages/myrequests/MyRequests";
 import MyrequestResolved from "../pages/MyrequestResolved/MyrequestResolved";
+import EditAccountPage from "../pages/account/EditAccount.component";
 
 const Router = () => {
   const [userName] = useState("Usuario");

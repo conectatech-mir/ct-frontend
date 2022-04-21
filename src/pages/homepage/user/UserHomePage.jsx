@@ -12,6 +12,10 @@ const UserHomePage = (props) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer);
   const { posts } = useSelector((state) => state.postReducer);
+  console.log(
+    "🚀 ~ file: UserHomePage.jsx ~ line 15 ~ UserHomePage ~ posts",
+    posts
+  );
   useEffect(() => {
     dispatch(fetchAllPost(id));
     dispatch(fetchUser(id));
