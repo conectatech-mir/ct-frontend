@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL_BASE = process.env.REACT_APP_API_URL_BASE || "http://localhost:8000";
+const URL_BASE = process.env.REACT_APP_API_URL_BASE || "https://ct-backend-conectatech.herokuapp.com";
 export const getPostUser = async (idUser) => {
   const url = `${URL_BASE}/api/posts/postUsuario/${idUser}`;
   const res = await axios.get(url);
