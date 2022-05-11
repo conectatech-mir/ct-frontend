@@ -34,7 +34,7 @@ const EditAccountPage = () => {
     setValue,
     reset,
   } = useForm({ resolver: yupResolver(EditProfileSchema) });
-  const baseURL = `http://localhost:8000/api/users/getUserById/${id}`;
+  const baseURL = `https://ct-backend-conectatech.herokuapp.com/api/users/getUserById/${id}`;
 
   useEffect(() => {
     dispatch(fetchUser(id));
