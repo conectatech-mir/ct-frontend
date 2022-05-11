@@ -1,3 +1,3 @@
-const BASE_URL = 'http://localhost:8000/api'
+const BASE_URL = 'https://ct-backend-conectatech.herokuapp.com/api'
 
 export default BASE_URL
